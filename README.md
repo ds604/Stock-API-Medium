@@ -1,5 +1,5 @@
 # Web Scrapper for Financial Data
-If you haven't done so already, please check out my Medium article
+If you haven't done so already, please check out my Medium article here.
 ## Set Up the Application
 After cloning the repository to your local machine, you must install the dependencies with `npm install`. The two packages used in this application are Express.js and Puppeteer.
 ## Start the Application
