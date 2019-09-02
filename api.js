@@ -1,6 +1,7 @@
 // Import packages
 var router = require('express').Router();
 var puppeteer = require('puppeteer');
+const chalk = require('chalk');
 
 // Router path
 router.route('/stock/:ticker').get(async (req, res) => {
@@ -8,7 +9,7 @@ router.route('/stock/:ticker').get(async (req, res) => {
 
     const browser = await puppeteer.launch({
         // Set headless to false to view the browser functionality
-        headless:true,
+        headless:false,
         args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
     const page = await browser.newPage();
@@ -22,6 +23,7 @@ router.route('/stock/:ticker').get(async (req, res) => {
     await browser.close();
 
     // Return the ticker and price
+    console.log(chalk.green(`Current stock price for ${ticker} is ${price}`));
     res.send({ticker, price});
 });
 
